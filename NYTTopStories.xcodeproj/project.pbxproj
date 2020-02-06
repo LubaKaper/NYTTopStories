@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,8 @@
 		8D4CD89F23EC6E8600A3A9F4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4CD89E23EC6E8600A3A9F4 /* SettingsViewController.swift */; };
 		8D4CD8A123EC715B00A3A9F4 /* NewsFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4CD8A023EC715B00A3A9F4 /* NewsFeedView.swift */; };
 		8D4CD8A423EC854200A3A9F4 /* TopStoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4CD8A323EC854200A3A9F4 /* TopStoryModel.swift */; };
+		8D4CD8A623EC862500A3A9F4 /* NYTTopStoriesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4CD8A523EC862500A3A9F4 /* NYTTopStoriesAPIClient.swift */; };
+		8D4CD8A923EC86A300A3A9F4 /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8D4CD8A823EC86A300A3A9F4 /* ImageKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,7 @@
 		8D4CD89E23EC6E8600A3A9F4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8D4CD8A023EC715B00A3A9F4 /* NewsFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedView.swift; sourceTree = "<group>"; };
 		8D4CD8A323EC854200A3A9F4 /* TopStoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStoryModel.swift; sourceTree = "<group>"; };
+		8D4CD8A523EC862500A3A9F4 /* NYTTopStoriesAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYTTopStoriesAPIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D4CD8A923EC86A300A3A9F4 /* ImageKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				8D4CD8A323EC854200A3A9F4 /* TopStoryModel.swift */,
+				8D4CD8A523EC862500A3A9F4 /* NYTTopStoriesAPIClient.swift */,
 			);
 			path = NetworkServices;
 			sourceTree = "<group>";
@@ -151,6 +156,9 @@
 			dependencies = (
 			);
 			name = NYTTopStories;
+			packageProductDependencies = (
+				8D4CD8A823EC86A300A3A9F4 /* ImageKit */,
+			);
 			productName = NYTTopStories;
 			productReference = 8D4CD87023EC6B6300A3A9F4 /* NYTTopStories.app */;
 			productType = "com.apple.product-type.application";
@@ -201,6 +209,9 @@
 				Base,
 			);
 			mainGroup = 8D4CD86723EC6B6200A3A9F4;
+			packageReferences = (
+				8D4CD8A723EC86A300A3A9F4 /* XCRemoteSwiftPackageReference "imageKit" */,
+			);
 			productRefGroup = 8D4CD87123EC6B6300A3A9F4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -240,6 +251,7 @@
 				8D4CD87623EC6B6300A3A9F4 /* SceneDelegate.swift in Sources */,
 				8D4CD8A423EC854200A3A9F4 /* TopStoryModel.swift in Sources */,
 				8D4CD89D23EC6E6C00A3A9F4 /* SavedArticlesViewController.swift in Sources */,
+				8D4CD8A623EC862500A3A9F4 /* NYTTopStoriesAPIClient.swift in Sources */,
 				8D4CD8A123EC715B00A3A9F4 /* NewsFeedView.swift in Sources */,
 				8D4CD89B23EC6E5100A3A9F4 /* NewsFeedViewController.swift in Sources */,
 				8D4CD89F23EC6E8600A3A9F4 /* SettingsViewController.swift in Sources */,
@@ -501,6 +513,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8D4CD8A723EC86A300A3A9F4 /* XCRemoteSwiftPackageReference "imageKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexpaul/imageKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8D4CD8A823EC86A300A3A9F4 /* ImageKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8D4CD8A723EC86A300A3A9F4 /* XCRemoteSwiftPackageReference "imageKit" */;
+			productName = ImageKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8D4CD86823EC6B6300A3A9F4 /* Project object */;
 }
