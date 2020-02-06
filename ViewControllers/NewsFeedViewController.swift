@@ -43,7 +43,7 @@ extension NewsFeedViewController: UICollectionViewDataSource {
     
     
 }
-extension NewsFeedViewController: UICollectionViewDelegateFlowLayout {
+    extension NewsFeedViewController: UICollectionViewDelegateFlowLayout {
     // return item size
     // itemHeight: 30% of height of devoice
     // width: 100% of width
