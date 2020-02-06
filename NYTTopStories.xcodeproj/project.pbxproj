@@ -16,6 +16,7 @@
 		8D4CD89B23EC6E5100A3A9F4 /* NewsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4CD89A23EC6E5100A3A9F4 /* NewsFeedViewController.swift */; };
 		8D4CD89D23EC6E6C00A3A9F4 /* SavedArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4CD89C23EC6E6C00A3A9F4 /* SavedArticlesViewController.swift */; };
 		8D4CD89F23EC6E8600A3A9F4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4CD89E23EC6E8600A3A9F4 /* SettingsViewController.swift */; };
+		8D4CD8A123EC715B00A3A9F4 /* NewsFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4CD8A023EC715B00A3A9F4 /* NewsFeedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		8D4CD89A23EC6E5100A3A9F4 /* NewsFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewController.swift; sourceTree = "<group>"; };
 		8D4CD89C23EC6E6C00A3A9F4 /* SavedArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedArticlesViewController.swift; sourceTree = "<group>"; };
 		8D4CD89E23EC6E8600A3A9F4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		8D4CD8A023EC715B00A3A9F4 /* NewsFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 		8D4CD89523EC6C2700A3A9F4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8D4CD8A023EC715B00A3A9F4 /* NewsFeedView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				8D4CD87423EC6B6300A3A9F4 /* AppDelegate.swift in Sources */,
 				8D4CD87623EC6B6300A3A9F4 /* SceneDelegate.swift in Sources */,
 				8D4CD89D23EC6E6C00A3A9F4 /* SavedArticlesViewController.swift in Sources */,
+				8D4CD8A123EC715B00A3A9F4 /* NewsFeedView.swift in Sources */,
 				8D4CD89B23EC6E5100A3A9F4 /* NewsFeedViewController.swift in Sources */,
 				8D4CD89F23EC6E8600A3A9F4 /* SettingsViewController.swift in Sources */,
 			);

@@ -34,7 +34,7 @@ class TopStoriesTabViewController: UITabBarController {
         super.viewDidLoad()
 
         view.backgroundColor = .systemYellow
-        viewControllers = [NewsFeedViewController(), SavedArticlesViewController(), SettingsViewController()]
+        viewControllers = [newsFeedVC, savedArticlesVC, settingsVC]
     }
     
 
