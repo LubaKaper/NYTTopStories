@@ -13,6 +13,9 @@
 		8D4CD88023EC6B6700A3A9F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D4CD87E23EC6B6700A3A9F4 /* LaunchScreen.storyboard */; };
 		8D4CD88B23EC6B6700A3A9F4 /* NYTTopStoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4CD88A23EC6B6700A3A9F4 /* NYTTopStoriesTests.swift */; };
 		8D4CD89823EC6C8100A3A9F4 /* TopStoriesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4CD89723EC6C8100A3A9F4 /* TopStoriesTabViewController.swift */; };
+		8D4CD89B23EC6E5100A3A9F4 /* NewsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4CD89A23EC6E5100A3A9F4 /* NewsFeedViewController.swift */; };
+		8D4CD89D23EC6E6C00A3A9F4 /* SavedArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4CD89C23EC6E6C00A3A9F4 /* SavedArticlesViewController.swift */; };
+		8D4CD89F23EC6E8600A3A9F4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4CD89E23EC6E8600A3A9F4 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,9 @@
 		8D4CD88A23EC6B6700A3A9F4 /* NYTTopStoriesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYTTopStoriesTests.swift; sourceTree = "<group>"; };
 		8D4CD88C23EC6B6700A3A9F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D4CD89723EC6C8100A3A9F4 /* TopStoriesTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStoriesTabViewController.swift; sourceTree = "<group>"; };
+		8D4CD89A23EC6E5100A3A9F4 /* NewsFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewController.swift; sourceTree = "<group>"; };
+		8D4CD89C23EC6E6C00A3A9F4 /* SavedArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedArticlesViewController.swift; sourceTree = "<group>"; };
+		8D4CD89E23EC6E8600A3A9F4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +114,9 @@
 			isa = PBXGroup;
 			children = (
 				8D4CD89723EC6C8100A3A9F4 /* TopStoriesTabViewController.swift */,
+				8D4CD89A23EC6E5100A3A9F4 /* NewsFeedViewController.swift */,
+				8D4CD89C23EC6E6C00A3A9F4 /* SavedArticlesViewController.swift */,
+				8D4CD89E23EC6E8600A3A9F4 /* SettingsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -215,6 +224,9 @@
 				8D4CD89823EC6C8100A3A9F4 /* TopStoriesTabViewController.swift in Sources */,
 				8D4CD87423EC6B6300A3A9F4 /* AppDelegate.swift in Sources */,
 				8D4CD87623EC6B6300A3A9F4 /* SceneDelegate.swift in Sources */,
+				8D4CD89D23EC6E6C00A3A9F4 /* SavedArticlesViewController.swift in Sources */,
+				8D4CD89B23EC6E5100A3A9F4 /* NewsFeedViewController.swift in Sources */,
+				8D4CD89F23EC6E8600A3A9F4 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

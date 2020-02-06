@@ -9,22 +9,34 @@
 import UIKit
 
 class TopStoriesTabViewController: UITabBarController {
-
+    
+    
+    
+    private lazy var newsFeedVC: NewsFeedViewController = {
+        let viewController = NewsFeedViewController()
+        viewController.tabBarItem = UITabBarItem(title: "News Feed", image: UIImage(systemName: "eyeglasses"), tag: 0)
+        return viewController
+    }()
+    
+    private lazy var savedArticlesVC: SavedArticlesViewController = {
+        let viewController = SavedArticlesViewController()
+        viewController.tabBarItem = UITabBarItem(title: "Saved Articles", image: UIImage(systemName: "folder"), tag: 1)
+        return viewController
+    }()
+    
+    private lazy var settingsVC: SettingsViewController = {
+        let viewController = SettingsViewController()
+        viewController.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 2)
+        return viewController
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .systemYellow
+        viewControllers = [NewsFeedViewController(), SavedArticlesViewController(), SettingsViewController()]
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+   
 }
