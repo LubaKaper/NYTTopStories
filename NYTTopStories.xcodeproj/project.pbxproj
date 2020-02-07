@@ -22,6 +22,8 @@
 		8D4CD8A923EC86A300A3A9F4 /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8D4CD8A823EC86A300A3A9F4 /* ImageKit */; };
 		8D4CD8AB23EC8BFF00A3A9F4 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4CD8AA23EC8BFF00A3A9F4 /* Config.swift */; };
 		8D4CD8B023EDB6EC00A3A9F4 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4CD8AF23EDB6EC00A3A9F4 /* NewsCell.swift */; };
+		8D4CD8B223EDCB6F00A3A9F4 /* ArticleDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4CD8B123EDCB6F00A3A9F4 /* ArticleDetailController.swift */; };
+		8D4CD8B423EDD12400A3A9F4 /* ArticleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4CD8B323EDD12400A3A9F4 /* ArticleDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		8D4CD8A523EC862500A3A9F4 /* NYTTopStoriesAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYTTopStoriesAPIClient.swift; sourceTree = "<group>"; };
 		8D4CD8AA23EC8BFF00A3A9F4 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		8D4CD8AF23EDB6EC00A3A9F4 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		8D4CD8B123EDCB6F00A3A9F4 /* ArticleDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailController.swift; sourceTree = "<group>"; };
+		8D4CD8B323EDD12400A3A9F4 /* ArticleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				8D4CD8A023EC715B00A3A9F4 /* NewsFeedView.swift */,
+				8D4CD8B323EDD12400A3A9F4 /* ArticleDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -133,6 +138,7 @@
 				8D4CD89A23EC6E5100A3A9F4 /* NewsFeedViewController.swift */,
 				8D4CD89C23EC6E6C00A3A9F4 /* SavedArticlesViewController.swift */,
 				8D4CD89E23EC6E8600A3A9F4 /* SettingsViewController.swift */,
+				8D4CD8B123EDCB6F00A3A9F4 /* ArticleDetailController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -261,8 +267,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D4CD89823EC6C8100A3A9F4 /* TopStoriesTabViewController.swift in Sources */,
+				8D4CD8B423EDD12400A3A9F4 /* ArticleDetailView.swift in Sources */,
 				8D4CD87423EC6B6300A3A9F4 /* AppDelegate.swift in Sources */,
 				8D4CD87623EC6B6300A3A9F4 /* SceneDelegate.swift in Sources */,
+				8D4CD8B223EDCB6F00A3A9F4 /* ArticleDetailController.swift in Sources */,
 				8D4CD8A423EC854200A3A9F4 /* TopStoryModel.swift in Sources */,
 				8D4CD89D23EC6E6C00A3A9F4 /* SavedArticlesViewController.swift in Sources */,
 				8D4CD8A623EC862500A3A9F4 /* NYTTopStoriesAPIClient.swift in Sources */,
