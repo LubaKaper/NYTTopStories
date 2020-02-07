@@ -24,7 +24,19 @@ class NewsFeedViewController: UIViewController {
         newsFeedView.collectionView.dataSource = self
         
         // register cell
-        newsFeedView.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "articleCell")
+        newsFeedView.collectionView.register(NewsCell.self, forCellWithReuseIdentifier: "articleCell")
+    }
+    
+    private func fetchStories(for section: String = "Technologies") {
+        NYTTopStoriesAPIClient.fetchTopStories(for: section) { (result) in
+            switch result {
+            case .failure(let appError):
+                print("error fetching stories : \(appError)")
+            case .success(let articles):
+                print("found: \(articles.count)")
+                
+            }
+        }
     }
     
 
@@ -36,7 +48,10 @@ extension NewsFeedViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "articleCell", for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "articleCell", for: indexPath) as? NewsCell else {
+            fatalError("could not deque NewsCell")
+            
+        }
         cell.backgroundColor = .white
         return cell
     }

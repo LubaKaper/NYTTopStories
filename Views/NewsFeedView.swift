@@ -13,7 +13,7 @@ class NewsFeedView: UIView {
     public lazy var searchBar: UISearchBar = {
        let sb = UISearchBar()
         sb.autocapitalizationType = .none // gets rid of capita;ization
-        sb.placeholder = "search for articles"
+        sb.placeholder = "search for article"
         return sb
     }()
     
@@ -21,7 +21,7 @@ class NewsFeedView: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        cv.backgroundColor = .blue
+        cv.backgroundColor = .systemGroupedBackground
         return cv
     }()
 
