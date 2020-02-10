@@ -8,10 +8,14 @@
 
 import UIKit
 import ImageKit
+import DataPersistence
 
 class ArticleDetailController: UIViewController {
     
     public var article: Article?
+    
+    public var dataPersistance: DataPersistence<Article>!
+
     
     private let detailView = ArticleDetailView()
     
@@ -49,6 +53,13 @@ class ArticleDetailController: UIViewController {
     }
    
     @objc func saveArticleButtonPressed(_ sender: UIBarButtonItem) {
-        print("save article button pressed")
+        guard let article = article else {return}
+        do {
+            // saves to documents directory after save button pressed
+        try dataPersistance.createItem(article)
+        } catch {
+            print("error saving article: \(error)")
+        }
+        
     }
 }
