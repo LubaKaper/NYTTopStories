@@ -22,9 +22,12 @@ class NewsFeedViewController: UIViewController {
         didSet {
             DispatchQueue.main.async {
                 self.newsFeedView.collectionView.reloadData()
+                self.navigationItem.title = (self.newsArticles.first?.section.capitalized ?? "") + " News"
             }
         }
     }
+    
+    private var sectionName = "Technologie"
     
     override func loadView() {
         view = newsFeedView
@@ -42,7 +45,28 @@ class NewsFeedViewController: UIViewController {
         fetchStories()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        fetchStories()
+    }
+    
     private func fetchStories(for section: String = "Technologies") {
+        
+        // retrieve section name from UserDefaults
+        if let sectionName = UserDefaults.standard.object(forKey: UserKey.newsSection) as? String {
+            if sectionName != self.sectionName {
+                // we are looking at a new section
+                // make a new query
+                queriAPI(for: sectionName)
+                self.sectionName = sectionName
+            } 
+        } else {
+           // use default section name
+            queriAPI(for: sectionName)
+        }
+        
+    }
+    private func queriAPI(for section: String) {
         NYTTopStoriesAPIClient.fetchTopStories(for: section) { [weak self] (result) in
             switch result {
             case .failure(let appError):

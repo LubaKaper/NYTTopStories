@@ -27,6 +27,7 @@
 		8DA0D6D123F1AC3600B16097 /* SavedArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA0D6D023F1AC3600B16097 /* SavedArticleView.swift */; };
 		8DA0D6D323F1B34000B16097 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA0D6D223F1B34000B16097 /* EmptyView.swift */; };
 		8DA0D6D523F1BB6700B16097 /* SavedArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA0D6D423F1BB6700B16097 /* SavedArticleCell.swift */; };
+		8DA0D6D723F1CDDF00B16097 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA0D6D623F1CDDF00B16097 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		8DA0D6D023F1AC3600B16097 /* SavedArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedArticleView.swift; sourceTree = "<group>"; };
 		8DA0D6D223F1B34000B16097 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		8DA0D6D423F1BB6700B16097 /* SavedArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedArticleCell.swift; sourceTree = "<group>"; };
+		8DA0D6D623F1CDDF00B16097 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				8DA0D6D023F1AC3600B16097 /* SavedArticleView.swift */,
 				8D4CD8A023EC715B00A3A9F4 /* NewsFeedView.swift */,
 				8D4CD8B323EDD12400A3A9F4 /* ArticleDetailView.swift */,
+				8DA0D6D623F1CDDF00B16097 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				8D4CD8B423EDD12400A3A9F4 /* ArticleDetailView.swift in Sources */,
 				8D4CD87423EC6B6300A3A9F4 /* AppDelegate.swift in Sources */,
 				8D4CD87623EC6B6300A3A9F4 /* SceneDelegate.swift in Sources */,
+				8DA0D6D723F1CDDF00B16097 /* SettingsView.swift in Sources */,
 				8D4CD8B223EDCB6F00A3A9F4 /* ArticleDetailController.swift in Sources */,
 				8DA0D6D123F1AC3600B16097 /* SavedArticleView.swift in Sources */,
 				8D4CD8A423EC854200A3A9F4 /* TopStoryModel.swift in Sources */,
