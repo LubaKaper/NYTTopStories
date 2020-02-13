@@ -11,11 +11,15 @@ import DataPersistence
 
 class NewsFeedViewController: UIViewController {
     
+    // properties
     private let newsFeedView = NewsFeedView()
     
     // step 2: seeting up data persistance and delegate:
-    // since we need an instanve passed to the article detail controller we declare a dataPersistance here
-    public var dataPersistance: DataPersistence<Article>!
+    // since we need an instance passed to the article detail controller we declare a dataPersistance here
+    // if don't have a d3fault value, make an initializer, hree we added initializer and got rid of optional(!)
+    private var dataPersistance: DataPersistence<Article>
+    
+    
     
     // data for our collection view
     private var newsArticles = [Article]() {
@@ -28,6 +32,16 @@ class NewsFeedViewController: UIViewController {
     }
     
     private var sectionName = "Technologie"
+    
+    // initializers
+    init(_ dataPersistance: DataPersistence<Article>) {
+        self.dataPersistance = dataPersistance
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coser:) has  not been implemented")
+    }
     
     override func loadView() {
         view = newsFeedView
@@ -42,13 +56,16 @@ class NewsFeedViewController: UIViewController {
         
         // register cell
         newsFeedView.collectionView.register(NewsCell.self, forCellWithReuseIdentifier: "articleCell")
-        fetchStories()
+       // fetchStories()
+       
+        newsFeedView.searchBar.delegate = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         fetchStories()
-    }
+    } 
     
     private func fetchStories(for section: String = "Technologies") {
         
@@ -59,7 +76,9 @@ class NewsFeedViewController: UIViewController {
                 // make a new query
                 queriAPI(for: sectionName)
                 self.sectionName = sectionName
-            } 
+            } else {
+                queriAPI(for: sectionName)
+            }
         } else {
            // use default section name
             queriAPI(for: sectionName)
@@ -112,14 +131,32 @@ extension NewsFeedViewController: UICollectionViewDataSource {
     }
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             let article = newsArticles[indexPath.row]
-            let articleDetailVC = ArticleDetailController()
+            let articleDetailVC = ArticleDetailController(dataPersistance, article: article)
             
             // tODO: after assesment we will be using initializers as dependancy injection mechsnism
-            articleDetailVC.article = article
+           // articleDetailVC.article = article
             
             // step 3 seeting up data persistance and delegate:
             // paSSING PERSISTANCE to detailVC
-            articleDetailVC.dataPersistance = dataPersistance
+           // articleDetailVC.dataPersistance = dataPersistance
             navigationController?.pushViewController(articleDetailVC, animated: true)
         }
+        // dismisses scrollview when user starts scrolling
+        func scrollViewDidScroll(_ scrollView: UIScrollView) {
+            if newsFeedView.searchBar.isFirstResponder {
+                newsFeedView.searchBar.resignFirstResponder()
+            }
+        }
+}
+
+extension NewsFeedViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            // if text is Empty reload all articles
+            fetchStories()
+            return
+        }
+        // filter articles based on search text
+        newsArticles = newsArticles.filter { $0.title.lowercased().contains(searchText.lowercased())}
+    }
 }

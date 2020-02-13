@@ -17,19 +17,20 @@ class TopStoriesTabViewController: UITabBarController {
     
     
     private lazy var newsFeedVC: NewsFeedViewController = {
-        let viewController = NewsFeedViewController()
+        let viewController = NewsFeedViewController(dataPersistance)
         viewController.tabBarItem = UITabBarItem(title: "News Feed", image: UIImage(systemName: "eyeglasses"), tag: 0)
-        viewController.dataPersistance = dataPersistance
+        // don't need line below, because we injecting now through initializer
+        //viewController.dataPersistance = dataPersistance
         return viewController
     }()
     
     private lazy var savedArticlesVC: SavedArticlesViewController = {
-        let viewController = SavedArticlesViewController()
+        let viewController = SavedArticlesViewController(dataPersistance)
         viewController.tabBarItem = UITabBarItem(title: "Saved Articles", image: UIImage(systemName: "folder"), tag: 1)
-        viewController.dataPersistance = dataPersistance
+        //viewController.dataPersistance = dataPersistance
         //steps  setting up data persistance and delegate:
         // setting up delegate here
-        viewController.dataPersistance.delegate = viewController
+        //viewController.dataPersistance.delegate = viewController
         return viewController
     }()
     

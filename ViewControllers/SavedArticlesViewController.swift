@@ -14,7 +14,7 @@ class SavedArticlesViewController: UIViewController {
     private let savedArticleView = SavedArticleView()
     
     // step 4 seeting up data persistance and delegate
-    public var dataPersistance: DataPersistence<Article>!
+    private var dataPersistance: DataPersistence<Article>
     
     // TODO: create a SavedArticleView
     // TODO: add a collection view to SavedArticle View
@@ -33,6 +33,16 @@ class SavedArticlesViewController: UIViewController {
                 savedArticleView.collectionView.backgroundView = nil
             }
         }
+    }
+    
+    init(_ dataPersistance: DataPersistence<Article>) {
+        self.dataPersistance = dataPersistance
+        super.init(nibName: nil, bundle: nil)
+        // add delegate here now, instead of TabBarController
+        self.dataPersistance.delegate = self
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coser:) has  not been implemented")
     }
 
     override func viewDidLoad() {
@@ -101,11 +111,12 @@ extension SavedArticlesViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // programmatically setup a segue
-        let detailVC = ArticleDetailController()
-        let article = savedArticles[indexPath.row]
+         let article = savedArticles[indexPath.row]
+        let detailVC = ArticleDetailController(dataPersistance, article: article)
+       
         // TODO: using initializer as opposed to injecting individual properties
-        detailVC.article = article
-        detailVC.dataPersistance = dataPersistance
+       // detailVC.article = article
+       // detailVC.dataPersistance = dataPersistance
         navigationController?.pushViewController(detailVC, animated: true)
         
     }

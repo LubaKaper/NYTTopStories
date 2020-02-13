@@ -22,6 +22,12 @@ class SavedArticleCell: UICollectionViewCell {
     // to keep track of current cell's article
     private var currentArticle: Article!
     
+    private lazy var longPressGesture: UILongPressGestureRecognizer = {
+        let gesture = UILongPressGestureRecognizer()
+        gesture.addTarget(self, action: #selector(didLongPress(_:)))
+        return gesture
+    }()
+    
     // more button
     // article title
     // news image
@@ -39,8 +45,22 @@ class SavedArticleCell: UICollectionViewCell {
            label.font = UIFont.preferredFont(forTextStyle: .title2)
            label.text = "The best headline ever"
         label.numberOfLines = 0
+        //label.alpha = 0
+       
            return label
        }()
+    
+    public lazy var newsImageView: UIImageView = {
+        let image = UIImageView()
+        image.contentMode = .scaleAspectFill
+        image.image = UIImage(systemName: "photo")
+        // keeps image within frame
+        image.clipsToBounds = true
+        image.alpha = 0
+        return image
+        
+    }()
+    private var isShowingImage = false
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -55,7 +75,46 @@ class SavedArticleCell: UICollectionViewCell {
     private func commonInit() {
         setupMoreButtonConstraints()
         setupLabelConstraints()
+        setupImageViewConstraints()
+        articleTitle.isUserInteractionEnabled = true
+        addGestureRecognizer(longPressGesture)
     }
+    
+    @objc private func didLongPress(_ gesture: UILongPressGestureRecognizer) {
+        guard let currentArticle = currentArticle else {return}
+        if gesture.state == .began || gesture.state == .changed {
+            print("Long pressed")
+            return
+        }
+        isShowingImage.toggle() // true -> false -> true
+        newsImageView.getImage(with: currentArticle.getArticleImageURL(for: .normal)) { [weak self](result) in
+            switch result {
+            case .failure:
+                break
+            case .success(let image):
+                DispatchQueue.main.async {
+                    self?.newsImageView.image = image
+                    self?.animate()
+                }
+            }
+        }
+    }
+        
+        private func animate() {
+            let duration: Double = 1.0 // seconds
+            if isShowingImage {
+                UIView.transition(with: self, duration: duration, options: [.transitionFlipFromRight], animations: {
+                    self.newsImageView.alpha = 1.0
+                    self.articleTitle.alpha = 0.0
+                }, completion: nil)
+            } else {
+                UIView.transition(with: self, duration: duration, options: [.transitionFlipFromLeft], animations: {
+                    self.newsImageView.alpha = 0.0
+                    self.articleTitle.alpha = 1.0
+                }, completion: nil)
+            }
+        }
+    
     
     @objc private func moreButtonPressed(_ sender: UIButton) {
         //print("button was pressed for article \(currentArticle.title)")
@@ -82,6 +141,17 @@ class SavedArticleCell: UICollectionViewCell {
             articleTitle.trailingAnchor.constraint(equalTo: trailingAnchor),
             articleTitle.topAnchor.constraint(equalTo: moreButton.bottomAnchor),
             articleTitle.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+    }
+    
+    private func setupImageViewConstraints() {
+        addSubview(newsImageView)
+        newsImageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            newsImageView.topAnchor.constraint(equalTo: moreButton.bottomAnchor),
+             newsImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+              newsImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+               newsImageView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
     
